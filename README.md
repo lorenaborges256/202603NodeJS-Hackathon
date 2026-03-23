@@ -4,8 +4,8 @@
 ### Main idea - Notify me App, a stock alert app for your e-commerce.
 
 - When product1 stock = 0  
-botton shows = "Notify me when is available"  
-User click in the botton, open a form  
+button shows = "Notify me when is available"  
+User click in the button, open a form  
 User write their email, and click ok.
 
 - When product1 stock > 0  
@@ -27,6 +27,7 @@ npm install express mongoose
 ```
 
 3. Adding Scripts, inside package.json, add scripts to run and auto‑reload the server:
+
 ```Json
 "scripts": { 
     "start": "node ./src/index.js", 
@@ -34,8 +35,9 @@ npm install express mongoose
 } 
 ```
 
-4. Structuring the Server Files  
-4.1  index.js — Starting the Server
+4. Structuring the Server Files
+
+- index.js — Starting the Server
 
 ```js
 const app = require('./server.js'); 
@@ -47,7 +49,7 @@ app.listen(PORT, () => {
 }); 
 ```
 
-4.2  server.js — Configuring Express
+- server.js — Configuring Express
 
 ```js
 const express = require('express'); 
@@ -58,3 +60,27 @@ app.get('/', (require, response) => {
 
 module.exports = app; 
 ```
+
+5. Core features
+
+    1. **Product page**  
+    When stock = 0: "Sold out" button (not clickable) + "Notify me" button  
+    When stock > 0: "Add to cart" button (clickable)  
+
+    2. **Notify me form page** with "write your email here" field and "Send" button  
+
+    3. **Product entity table** (product_id, Name, qty, last_update)  
+
+    4. **User entity table** (tamestamp, email, product_id)
+
+    5. User can request notifications:  
+    POST/notify  
+    -- user email  
+    -- product ID
+
+    6. Admin can update stock  
+    PATCH /products/:id  
+    -- stock: number
+
+    7. When stock > 0 -> send email  
+    “check stock on update” function.
