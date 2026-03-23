@@ -1,0 +1,27 @@
+{
+  "name": "202603nodejs-hackathon",
+  "version": "1.0.0",
+  "description": "- When product1 stock = 0  \r botton shows = \"Notify me when is available\"  \r User click in the botton, open a form  \r User write their email, and click ok.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/index.js",
+    "dev": "node --watch ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lorenaborges256/202603NodeJS-Hackathon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/lorenaborges256/202603NodeJS-Hackathon/issues"
+  },
+  "homepage": "https://github.com/lorenaborges256/202603NodeJS-Hackathon#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^9.3.1"
+  }
+}
