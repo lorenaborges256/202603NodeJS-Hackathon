@@ -87,3 +87,38 @@ module.exports = app;
 
     8. When stock > 0 -> send email  
     “check stock on update” function.
+
+6. Creating Routes (just the parts we need now)
+
+    ```bash
+    routes/
+        notifyRoutes.js
+        productRoutes.js
+    ```
+
+    1. User can request notifications:  
+    POST/notify  
+    -- user email  
+    -- product ID
+
+    6. Update stock  
+    PATCH /products/:id  
+    -- stock: number
+
+    7. List Products  
+    GET/products  
+    Was created a temporary list of products
+
+7. Creating Controllers
+
+```bash
+controllers/
+    notifyController.js
+    productController.js
+```
+
+8. Creating your first Model (Notification, Product, User)
+
+9.  Connecting your app to MongoDB Atlas
+
+10. Adding Nodemailer to send real emails (if time permit)
