@@ -82,5 +82,8 @@ module.exports = app;
     PATCH /products/:id  
     -- stock: number
 
-    7. When stock > 0 -> send email  
+    7. List Products
+    GET/products
+
+    8. When stock > 0 -> send email  
     “check stock on update” function.
