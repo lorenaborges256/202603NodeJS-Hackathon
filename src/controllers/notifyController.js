@@ -1,0 +1,20 @@
+const requestNotification = (request, response) => {
+    const { email, productId } = request.body;
+
+    if (!email || !productId) {
+        return response.status(400).json({
+            message: "Email and productId are required"
+        });
+    }
+
+    console.log(`User ${email} wants notification for product ${productId}`);
+
+    return response.status(201).json({
+        message: "Notification request received",
+        data: { email, productId }
+    });
+};
+
+module.exports = {
+    requestNotification
+};
