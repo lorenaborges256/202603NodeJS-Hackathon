@@ -1,4 +1,7 @@
-const requestNotification = (request, response) => {
+// controllers/notifyController.js
+const Notification = require("../models/notificationModel");
+
+const requestNotification = async (request, response) => {
     const { email, productId } = request.body;
 
     if (!email || !productId) {
@@ -7,12 +10,23 @@ const requestNotification = (request, response) => {
         });
     }
 
-    console.log(`User ${email} wants notification for product ${productId}`);
+    try {
+        const newNotification = await Notification.create({
+            email,
+            productId
+        });
 
-    return response.status(201).json({
-        message: "Notification request received",
-        data: { email, productId }
-    });
+        return response.status(201).json({
+            message: "Notification request saved",
+            data: newNotification
+        });
+
+    } catch (error) {
+        console.error("Error saving notification:", error);
+        return response.status(500).json({
+            message: "Internal server error"
+        });
+    }
 };
 
 module.exports = {

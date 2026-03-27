@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/lorenaborges256/202603NodeJS-Hackathon#readme",
   "dependencies": {
+    "dotenv": "^17.3.1",
     "express": "^5.2.1",
-    "mongoose": "^9.3.1"
+    "mongoose": "^9.3.3"
   }
 }

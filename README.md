@@ -1,5 +1,6 @@
 # 202603NodeJS-Hackathon
 ## This is my first Hackathon Project. Theme: NodeJS, Start: ASAP, Finish: End of 29th March 2026
+*I am using this project to write a step-by-step intructions to solidfy my understanding*
 
 ### Main idea - Notify me App, a stock alert app for your e-commerce.
 
@@ -88,7 +89,8 @@ module.exports = app;
     8. When stock > 0 -> send email  
     “check stock on update” function.
 
-6. Creating Routes (just the parts we need now)
+6. Creating Routes (just the parts we need now)  
+In MVC, routes should NOT contain logic
 
     ```bash
     routes/
@@ -117,8 +119,14 @@ controllers/
     productController.js
 ```
 
-8. Creating your first Model (Notification, Product, User)
+8. Creating Model (MongoDB schemas) (Notification, Product, User)
+    1. Install Mongoose and dotenv
+```npm install mongoose dotenv```
 
-9.  Connecting your app to MongoDB Atlas
+    2. Connecting your app to MongoDB Atlas
+
+    Username: nodejs_db_user
+    Password: bananas
+    mongodb+srv://nodejs_db_user:bananas@nodejshackathon.uyznrs0.mongodb.net/
 
 10. Adding Nodemailer to send real emails (if time permit)
