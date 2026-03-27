@@ -1,8 +1,10 @@
 # 202603NodeJS-Hackathon
+
 ## This is my first Hackathon Project. Theme: NodeJS, Start: ASAP, Finish: End of 29th March 2026
+
 *I am using this project to write a step-by-step intructions to solidfy my understanding*
 
-### Main idea - Notify me App, a stock alert app for your e-commerce.
+### Main idea - Notify me App, a stock alert app for your e-commerce
 
 - When product1 stock = 0  
 button shows = "Notify me when is available"  
@@ -21,13 +23,13 @@ When stock update, program send an email to the User who wanted to be notified.
 npm init -y 
 ```
 
-2. Installing Dependencies - Install Express and Mongoose. (Additional packages may be added as needed.)
+1. Installing Dependencies - Install Express and Mongoose. (Additional packages may be added as needed.)
 
 ```bash
 npm install express mongoose
 ```
 
-3. Adding Scripts, inside package.json, add scripts to run and auto‑reload the server:
+1. Adding Scripts, inside package.json, add scripts to run and auto‑reload the server:
 
 ```Json
 "scripts": { 
@@ -36,7 +38,7 @@ npm install express mongoose
 } 
 ```
 
-4. Structuring the Server Files
+1. Structuring the Server Files
 
 - index.js — Starting the Server
 
@@ -62,7 +64,7 @@ app.get('/', (require, response) => {
 module.exports = app; 
 ```
 
-5. Core features
+1. Core features
 
     1. **Product page**  
     When stock = 0: "Sold out" button (not clickable) + "Notify me" button  
@@ -89,7 +91,7 @@ module.exports = app;
     8. When stock > 0 -> send email  
     “check stock on update” function.
 
-6. Creating Routes (just the parts we need now)  
+2. Creating Routes (just the parts we need now)  
 In MVC, routes should NOT contain logic
 
     ```bash
@@ -103,15 +105,15 @@ In MVC, routes should NOT contain logic
     -- user email  
     -- product ID
 
-    6. Update stock  
+    2. Update stock  
     PATCH /products/:id  
     -- stock: number
 
-    7. List Products  
+    3. List Products  
     GET/products  
     Was created a temporary list of products
 
-7. Creating Controllers
+3. Creating Controllers
 
 ```bash
 controllers/
@@ -119,14 +121,24 @@ controllers/
     productController.js
 ```
 
-8. Creating Model (MongoDB schemas) (Notification, Product, User)
+1. Creating Model (MongoDB schemas) (Notification, Product, User)
     1. Install Mongoose and dotenv
-```npm install mongoose dotenv```
 
-    2. Connecting your app to MongoDB Atlas
+    ```bash
+    npm install mongoose dotenv
+    ```
+
+    1. Connecting your app to MongoDB Atlas
 
     Username: nodejs_db_user
     Password: bananas
     mongodb+srv://nodejs_db_user:bananas@nodejshackathon.uyznrs0.mongodb.net/
+    3.  Creating files
 
-10. Adding Nodemailer to send real emails (if time permit)
+    ```
+    models/ 
+        notificationModel.js
+        productModel.js
+    ```
+
+2. Adding Nodemailer to send real emails (if time permit)

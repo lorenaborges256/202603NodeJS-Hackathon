@@ -1,31 +1,43 @@
-// Temporary in-memory products
-let products = [
-    { id: "1", name: "Sneakers", stock: 0 },
-    { id: "2", name: "Headphones", stock: 0 }
-];
+const Product = require("../models/productModel");
 
-const listProducts = (request, response) => {
-    response.json(products);
+// GET /products
+const listProducts = async (request, response) => {
+    try {
+        const products = await Product.find();
+        return response.json(products);
+    } catch (error) {
+        console.error("Error fetching products:", error);
+        return response.status(500).json({ message: "Internal server error" });
+    }
 };
 
-const updateStock = (request, response) => {
+// PATCH /products/:id
+const updateStock = async (request, response) => {
     const { id } = request.params;
     const { stock } = request.body;
 
-    const product = products.find((p) => p.id === id);
+    try {
+        const updatedProduct = await Product.findByIdAndUpdate(
+            id,
+            { stock },
+            { new: true } // return updated document
+        );
 
-    if (!product) {
-        return response.status(404).json({ message: "Product not found" });
+        if (!updatedProduct) {
+            return response.status(404).json({ message: "Product not found" });
+        }
+
+        console.log(`Product ${id} stock updated to ${stock}`);
+
+        return response.json({
+            message: "Stock updated",
+            product: updatedProduct
+        });
+
+    } catch (error) {
+        console.error("Error updating product:", error);
+        return response.status(500).json({ message: "Internal server error" });
     }
-
-    product.stock = stock;
-
-    console.log(`Product ${id} stock updated to ${stock}`);
-
-    return response.json({
-        message: "Stock updated",
-        product
-    });
 };
 
 module.exports = {
